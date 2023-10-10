@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Synth</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <section class="header">
+        <h1>JAVASCRIPT SYNTH</h1>
+    </section>
+
+    <section class="set-parameters dropdown">
+        
+        <div class="parameters-header-box">
+            <h2 class="settings">SYNTH SETTINGS</h2>
+            <p id="settings-toggle" class="show-hide">Show +</p>
+        </div>
+
+        <div id="settings-controls-panel" class="hidden">
+            <div class="settings-box">
+                <h3 class="setting-heading">Fundamental Waveform</h3>
+                <label for="sine">Sine</label>
+                <input type="radio" class="radio-button" id="sine" name="wave-type" value="sine" checked="checked">
+                <label for="triangle">Triangle</label>
+                <input type="radio" class="radio-button" id="triangle" name="wave-type" value="triangle">
+                <label for="sawtooth">Sawtooth</label>
+                <input type="radio" class="radio-button" id="sawtooth" name="wave-type" value="sawtooth">
+                <label for="square">Square</label>
+                <input type="radio" class="radio-button" id="square" name="wave-type" value="square">
+            </div>
+            <div class="settings-box">
+                <h3 class="setting-heading">Fundamental Gain</h3>
+                <input type="range" id="gain-slider" class="gain-slider" min="0" max="1" step="0.01">
+                <p class="gain-text" id="gain-text">%50</p>
+            </div>
+
+            <div class="settings-box">
+                <h3 class="setting-heading">OT1 Waveform</h3>
+                <label for="ot1sine">Sine</label>
+                <input type="radio" class="radio-button" id="ot1sine" name="ot1-type" value="sine" checked="checked">
+                <label for="ot1triangle">Triangle</label>
+                <input type="radio" class="radio-button" id="ot1triangle" name="ot1-type" value="triangle">
+                <label for="ot1sawtooth">Sawtooth</label>
+                <input type="radio" class="radio-button" id="ot1sawtooth" name="ot1-type" value="sawtooth">
+                <label for="ot1square">Square</label>
+                <input type="radio" class="radio-button" id="ot1square" name="ot1-type" value="square">
+            </div>
+            <div class="settings-box">
+                <h3 class="setting-heading">OT1 Gain</h3>
+                <input type="range" id="ot1-gain-slider" class="gain-slider" min="0" max="1" step="0.01">
+                <p class="gain-text" id="ot1-gain-text">%50</p>
+            </div>
+
+            <div class="settings-box">
+                <h3 class="setting-heading">OT2 Waveform</h3>
+                <label for="ot2sine">Sine</label>
+                <input type="radio" class="radio-button" id="ot2sine" name="ot2-type" value="sine" checked="checked">
+                <label for="ot2triangle">Triangle</label>
+                <input type="radio" class="radio-button" id="ot2triangle" name="ot2-type" value="triangle">
+                <label for="ot2sawtooth">Sawtooth</label>
+                <input type="radio" class="radio-button" id="ot2sawtooth" name="ot2-type" value="sawtooth">
+                <label for="ot2square">Square</label>
+                <input type="radio" class="radio-button" id="ot2square" name="ot2-type" value="square">
+            </div>
+            <div class="settings-box">
+                <h3 class="setting-heading">OT2 Gain</h3>
+                <input type="range" id="ot2-gain-slider" class="gain-slider" min="0" max="1" step="0.01">
+                <p class="gain-text" id="ot2-gain-text">%50</p>
+            </div>
+
+            <div class="settings-box">
+                <h3 class="setting-heading">OT3 Waveform</h3>
+                <label for="ot3sine">Sine</label>
+                <input type="radio" class="radio-button" id="ot3sine" name="ot3-type" value="sine" checked="checked">
+                <label for="ot3triangle">Triangle</label>
+                <input type="radio" class="radio-button" id="ot3triangle" name="ot3-type" value="triangle">
+                <label for="ot3sawtooth">Sawtooth</label>
+                <input type="radio" class="radio-button" id="ot3sawtooth" name="ot3-type" value="sawtooth">
+                <label for="ot3square">Square</label>
+                <input type="radio" class="radio-button" id="ot3square" name="ot3-type" value="square">
+            </div>
+            <div class="settings-box">
+                <h3 class="setting-heading">OT3 Gain</h3>
+                <input type="range" id="ot3-gain-slider" class="gain-slider" min="0" max="1" step="0.01">
+                <p class="gain-text" id="ot3-gain-text">%50</p>
+            </div>
+
+            <div class="settings-box">
+                <h3 class="setting-heading">Master Gain</h3>
+                <input type="range" id="master-gain-slider" class="gain-slider" min="0" max="1" step="0.01">
+                <p class="gain-text" id="master-gain-text">%50</p>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="playback dropdown">
+        <h2>PLAYBACK</h2>
+        <div class="piano">
+            <div class="accidentals">
+                <div class="half-spacer"></div>
+                <div class="piano-key black-key"><h3 class="keyboard-input accidental-text">2</h3></div>
+                <div class="piano-key black-key"><h3 class="keyboard-input accidental-text">3</h3></div>
+                <div class="spacer"></div>
+                <div class="piano-key black-key"><h3 class="keyboard-input accidental-text">5</h3></div>
+                <div class="piano-key black-key"><h3 class="keyboard-input accidental-text">6</h3></div>
+                <div class="piano-key black-key"><h3 class="keyboard-input accidental-text">7</h3></div>
+                <div class="spacer"></div>
+                <div class="piano-key black-key"><h3 class="keyboard-input accidental-text">9</h3></div>
+                <div class="piano-key black-key"><h3 class="keyboard-input accidental-text">0</h3></div>
+                <div class="half-spacer"></div>
+            </div>
+            <div class="naturals">
+                <div class="piano-key white-key"><h3 class="keyboard-input natural-text">Q</h3></div>
+                <div class="piano-key white-key"><h3 class="keyboard-input natural-text">W</h3></div>
+                <div class="piano-key white-key"><h3 class="keyboard-input natural-text">E</h3></div>
+                <div class="piano-key white-key"><h3 class="keyboard-input natural-text">R</h3></div>
+                <div class="piano-key white-key"><h3 class="keyboard-input natural-text">T</h3></div>
+                <div class="piano-key white-key"><h3 class="keyboard-input natural-text">Y</h3></div>
+                <div class="piano-key white-key"><h3 class="keyboard-input natural-text">U</h3></div>
+                <div class="piano-key white-key"><h3 class="keyboard-input natural-text">I</h3></div>
+                <div class="piano-key white-key"><h3 class="keyboard-input natural-text">O</h3></div>
+                <div class="piano-key white-key"><h3 class="keyboard-input natural-text">P</h3></div>
+            </div>
+            <div class="octave-controls">
+                <h2 class="octave-text">Octave:</h2>
+                <div class="octave-buttons octave-down">
+                    <h3 class="octave-button-text">-</h3>
+                </div>
+                <h3 class="octave-text">0</h3>
+                <div class="octave-buttons octave-up">
+                    <h3 class="octave-button-text">+</h3>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="set-parameters dropdown">
+        
+        <div class="parameters-header-box">
+            <h2 class="settings">SYNTH INFO</h2>
+            <p id="info-toggle" class="show-hide">Show +</p>
+        </div>
+
+        <div id="info-box" class="hidden">
+            <div>
+                <p class="info-text">This project was created between September and October of 2023 and was an exercise in learning the basics of the Web Audio API.</p>
+                <p class="info-text">The synth consists of a fundamental and 3 additional overtones. The waveform for each overtone can be selected independently of one another and the relative volumes of these oscillators within the mix can also be adjusted using their respetive gain sliders. Master gain controls the volume of the entire mix while maintaining the ratios set by the overtone gain sliders.</p>
+                <p class="info-text">The octave can be selected using the octave +/- buttons below the piano keyboard giving the synth a total range of over 5 octaves. </p>
+                <p class="info-text">All notes can be played with a mouse as well as with the computer keyboard.</p>
+            </div>
+        </div>
+
+
+    </section>
+
+    <p class="copyright">© Copyright 2023 Nathan Petitpas</p>
+
+
+    <script src="index.js"></script>
+</body>
+</html>

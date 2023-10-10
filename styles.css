@@ -1,0 +1,219 @@
+body {
+    background-color: black;
+    font-family: 'Syne', sans-serif;
+    margin: 8px 0;
+    user-select: none;
+}
+
+h1 {
+    color: white;
+    font-size: 40px;
+    padding-left: 10px;
+    transition: padding-left 0.5s;
+}
+
+h1:hover {
+    background-image: linear-gradient(90deg, rgb(88, 88, 88) 10%, transparent 10%), linear-gradient(42deg, transparent 48%, rgb(88, 88, 88) 48%, rgb(88, 88, 88) 55%, transparent 55%);
+    background-size: 51px 48px;
+    background-position: 0 0;
+    color: white;
+    padding-left: 10%;
+    transition: padding-left 2s;
+    animation-name: wave;
+    animation-duration: 300ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+@keyframes wave {
+    100% {background-position: -51px 0px;}
+}
+
+@media only screen and (max-width: 600px) {
+    h1:hover { padding-left: 10px}
+}
+
+h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.dropdown {
+    background-color: rgb(210, 228, 252);
+    margin: 10px 0;
+    padding: 30px;
+}
+
+
+
+/*--------------Settings-----------------*/
+
+/* Settings Header */
+.show-hide {
+    margin: 6px 0 0 0;
+}
+
+/* Settings Controls and Info Dropdown */
+.grid-container {    /* This class is not in HTML, it's applied to un-hide div in JS */
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    padding: 10px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.settings-box {
+    padding: 16px 0;
+    width: 420px;
+}
+
+.setting-heading {
+    font-size: 16px;
+    margin: 0;
+}
+
+.gain-text {
+    display: inline;
+}
+
+.gain-slider {
+    width: 330px;
+}
+
+.radio-button {
+    margin-right: 26px;
+}
+
+@media only screen and (max-width: 860px) {
+    .grid-container{
+        grid-template-columns: auto;
+    }
+
+    .settings-box {
+        width: 100%;
+    }
+
+    .gain-slider {
+        max-width: 85%;
+    }
+}
+
+/* --------------Playback / Piano-------------- */
+
+.piano {
+    padding-top: 16px;
+}
+
+.accidentals, .naturals {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.piano-key, .spacer {
+    width: 8vw;
+    height: 16vw;
+    max-width: 100px;
+    max-height: 200px;
+    display: flex;
+    border-radius: 8% / 4%;
+    margin: 4px;
+    justify-content: center;
+}
+
+.keyboard-input {
+    font-size: calc(8px + 2vw);
+    text-align: center;
+}
+
+.accidental-text {
+    color: white;
+    margin: 0 0 30px 0;
+}
+
+.natural-text {
+    color: black;
+    margin: 30px 0 0 0;
+}
+
+/* Accidentals */
+.black-key {
+    display: flex;
+    align-items: flex-end;
+    background-color: black;
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: black;
+}
+
+.spacer, .half-spacer {
+    background-color: rgb(210, 228, 252);
+}
+
+.half-spacer {
+    display: inline-block;
+    width: 4vw;
+    height: 16vw;
+    max-width: 50px;
+    max-height: 200px;
+    margin: 4px;
+}
+
+/* White Keys */
+.white-key {
+    background-color: white;
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: black;
+}
+
+/* Active Keys */
+.active {
+    background-color: rgb(127, 175, 247);
+}
+
+/*------------------------------------------------------------------*/
+/* Octave Controls */
+
+.octave-controls {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.octave-text {
+    display: inline-block;
+}
+
+.octave-buttons {
+    display: inline-block;
+    margin: 0 20px;
+    background-color: white;
+    border-radius: 30%;
+    border-style: solid;
+    border-width: 1px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
+
+.octave-button-text {
+    color: black;
+    margin: 3.5px 0 0 0;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+/*--------------Info------------------------------*/
+
+.info-text {
+    text-align: justify;
+}
+
+/*--------------Footer----------------------------*/
+
+.copyright {
+    color: white;
+    text-align: center;
+}
