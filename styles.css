@@ -1,37 +1,62 @@
+:root {
+    --bgc-1: rgba(239, 239, 239, 0.5);
+    --bgc-1-opaque: rgba(239, 239, 239, 1);
+    --bgc-2: rgba(228, 228, 228, 0.55);
+    --bgc-2-opaque: rgba(228, 228, 228, 1);
+    --bgc-3: rgb(255, 0, 0);
+    --bg-image:
+        radial-gradient(at bottom left, transparent 30%, var(--bgc-2) 30% 40%, transparent 40%),
+        radial-gradient(at top right, transparent 30.5%, var(--bgc-2) 30.5% 40.5%, transparent 40.5%),
+
+        linear-gradient(-20deg, var(--bgc-1) 10%, transparent 10% 73.5%, var(--bgc-1) 73.5% 83.5%, transparent 83.5%),
+        linear-gradient(-32.5deg, transparent 39%, var(--bgc-1) 39% 47.5%, transparent 47.5%);
+
+    --bg-size: 40px 40px;
+}
+
 body {
     background-color: black;
     font-family: 'Syne', sans-serif;
     margin: 8px 0;
     user-select: none;
+
 }
 
-h1 {
-    color: white;
-    font-size: 40px;
-    padding-left: 10px;
-    transition: padding-left 0.5s;
-}
+/* -------------------Header------------------------------ */
 
-h1:hover {
+.header {
     background-image: linear-gradient(90deg, rgb(88, 88, 88) 10%, transparent 10%), linear-gradient(42deg, transparent 48%, rgb(88, 88, 88) 48%, rgb(88, 88, 88) 55%, transparent 55%);
     background-size: 51px 48px;
     background-position: 0 0;
-    color: white;
-    padding-left: 10%;
-    transition: padding-left 2s;
     animation-name: wave;
     animation-duration: 300ms;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-
 }
+
+h1 {
+    background-color: rgba(0, 0, 0, 1);
+    color: var(--bgc-1-opaque);
+    font-size: 40px;
+    padding-left: 30px;
+    transition: padding-left 0.5s, background-color 0.5s;
+}
+
+h1:hover {
+    background-color: rgba(0, 0, 0, 0);
+    padding-left: 10%;
+    transition: padding-left 2s, background-color 2s;
+}
+
 @keyframes wave {
     100% {background-position: -51px 0px;}
 }
 
 @media only screen and (max-width: 600px) {
-    h1:hover { padding-left: 10px}
+    h1:hover { padding-left: 30px}
 }
+
+/*----------------Dropdown Sections--------------*/
 
 h2 {
     margin: 0;
@@ -39,11 +64,18 @@ h2 {
 }
 
 .dropdown {
-    background-color: rgb(210, 228, 252);
+    background-color: var(--bgc-2-opaque);
+    background-image: var(--bg-image);
+    background-size: var(--bg-size);
     margin: 10px 0;
     padding: 30px;
+    transition: background-color 2s;
 }
 
+.dropdown:hover {
+    background-color: var(--bgc-1-opaque);
+    transition: background-color 2s;
+}
 
 
 /*--------------Settings-----------------*/
@@ -149,7 +181,7 @@ h2 {
 }
 
 .spacer, .half-spacer {
-    background-color: rgb(210, 228, 252);
+    background-color: transparent;
 }
 
 .half-spacer {
@@ -171,7 +203,7 @@ h2 {
 
 /* Active Keys */
 .active {
-    background-color: rgb(127, 175, 247);
+    background-color: rgba(167, 167, 167, 0.538);
 }
 
 /*------------------------------------------------------------------*/
