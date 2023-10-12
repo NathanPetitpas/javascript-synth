@@ -29,9 +29,9 @@
             <div class="settings-box">
                 <h3 class="setting-heading">Fundamental Waveform</h3>
                 <label for="sine">Sine</label>
-                <input type="radio" class="radio-button" id="sine" name="wave-type" value="sine" checked="checked">
+                <input type="radio" class="radio-button" id="sine" name="wave-type" value="sine">
                 <label for="triangle">Triangle</label>
-                <input type="radio" class="radio-button" id="triangle" name="wave-type" value="triangle">
+                <input type="radio" class="radio-button" id="triangle" name="wave-type" value="triangle" checked="checked">
                 <label for="sawtooth">Sawtooth</label>
                 <input type="radio" class="radio-button" id="sawtooth" name="wave-type" value="sawtooth">
                 <label for="square">Square</label>
@@ -39,8 +39,8 @@
             </div>
             <div class="settings-box">
                 <h3 class="setting-heading">Fundamental Gain</h3>
-                <input type="range" id="gain-slider" class="gain-slider" min="0" max="1" step="0.01">
-                <p class="gain-text" id="gain-text">%50</p>
+                <input type="range" id="gain-slider" class="gain-slider" min="0" max="1" value="0.8" step="0.01">
+                <p class="gain-text" id="gain-text">%80</p>
             </div>
 
             <div class="settings-box">
@@ -56,8 +56,8 @@
             </div>
             <div class="settings-box">
                 <h3 class="setting-heading">OT1 Gain</h3>
-                <input type="range" id="ot1-gain-slider" class="gain-slider" min="0" max="1" step="0.01">
-                <p class="gain-text" id="ot1-gain-text">%50</p>
+                <input type="range" id="ot1-gain-slider" class="gain-slider" min="0" max="1" value="0.4" step="0.01">
+                <p class="gain-text" id="ot1-gain-text">%40</p>
             </div>
 
             <div class="settings-box">
@@ -73,8 +73,8 @@
             </div>
             <div class="settings-box">
                 <h3 class="setting-heading">OT2 Gain</h3>
-                <input type="range" id="ot2-gain-slider" class="gain-slider" min="0" max="1" step="0.01">
-                <p class="gain-text" id="ot2-gain-text">%50</p>
+                <input type="range" id="ot2-gain-slider" class="gain-slider" min="0" max="1" value="0.2" step="0.01">
+                <p class="gain-text" id="ot2-gain-text">%20</p>
             </div>
 
             <div class="settings-box">
@@ -90,8 +90,8 @@
             </div>
             <div class="settings-box">
                 <h3 class="setting-heading">OT3 Gain</h3>
-                <input type="range" id="ot3-gain-slider" class="gain-slider" min="0" max="1" step="0.01">
-                <p class="gain-text" id="ot3-gain-text">%50</p>
+                <input type="range" id="ot3-gain-slider" class="gain-slider" min="0" max="1" value="0.1" step="0.01">
+                <p class="gain-text" id="ot3-gain-text">%10</p>
             </div>
 
             <div class="settings-box">
@@ -141,6 +141,7 @@
                 <div class="octave-buttons octave-up">
                     <h3 class="octave-button-text">+</h3>
                 </div>
+                <p>For best results avoid using Bluetooth audio devices such as speakers or headphones as they will produce a noticeable delay. <br>Stick to wired speakers and headphones or use your device's internal speakers.</p>
             </div>
             
         </div>
@@ -149,16 +150,18 @@
     <section class="set-parameters dropdown">
         
         <div class="parameters-header-box">
-            <h2 class="settings">SYNTH INFO</h2>
+            <h2 class="settings">INFO</h2>
             <p id="info-toggle" class="show-hide">Show +</p>
         </div>
 
         <div id="info-box" class="hidden">
             <div>
                 <p class="info-text">This project was created between September and October of 2023 and was an exercise in learning the basics of the Web Audio API.</p>
-                <p class="info-text">The synth consists of a fundamental and 3 additional overtones. The waveform for each overtone can be selected independently of one another and the relative volumes of these oscillators within the mix can also be adjusted using their respetive gain sliders. Master gain controls the volume of the entire mix while maintaining the ratios set by the overtone gain sliders.</p>
+                <p class="info-text">The synth consists of a fundamental and 3 additional overtones. The waveforms for each overtone can be selected independently of one another and the relative volumes of these oscillators within the mix can also be adjusted using their respetive gain sliders. Master gain controls the volume of the entire mix while maintaining the ratios set by the individual overtone gain sliders.</p>
                 <p class="info-text">The octave can be selected using the octave +/- buttons below the piano keyboard giving the synth a total range of over 5 octaves. </p>
-                <p class="info-text">All notes can be played with a mouse as well as with the computer keyboard.</p>
+                <p class="info-text">Notes can be played with a mouse as well as with the computer keyboard.</p>
+                <p class="info-text">All of the audio that you hear is generated by your browser using Javascript's built-in Web Audio Api; there are no samples, external sound files, or external packages or modules used at all. All backgrounds, graphics, and animations are also generated by your browser using standard, vanilla CSS; no image files or external frameworks are involved.</p>
+                <p class="info-text">WARNING: Using bluetooth audio (wireless earbuds or speakers) will cause a significant delay between input and sound production. For best results use wired spearkers/headphones or built-in speakers.</p>
             </div>
         </div>
 

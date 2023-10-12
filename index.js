@@ -1,5 +1,6 @@
 //Next Steps:
-// Style Inputs
+// Touch Input
+// Fix clicks/pops
 
 //-----------------Establish Variables and Arrays-------------------------------
 
@@ -31,25 +32,25 @@ var compressor = new DynamicsCompressorNode(audioContext);
 //Establish Gain Nodes
 const fundgainSlider = document.querySelector("#gain-slider");
 const fundgainText = document.querySelector("#gain-text");
-var fundgainSetting = 0.5;
+var fundgainSetting = 0.8;
 const fundgainNode = audioContext.createGain();
 fundgainNode.gain.setValueAtTime(fundgainSetting, audioContext.currentTime);
 
 const ot1gainSlider = document.querySelector("#ot1-gain-slider");
 const ot1gainText = document.querySelector("#ot1-gain-text");
-var ot1gainSetting = 0.5;
+var ot1gainSetting = 0.4;
 const ot1gainNode = audioContext.createGain();
 ot1gainNode.gain.setValueAtTime(ot1gainSetting, audioContext.currentTime);
 
 const ot2gainSlider = document.querySelector("#ot2-gain-slider");
 const ot2gainText = document.querySelector("#ot2-gain-text");
-var ot2gainSetting = 0.5;
+var ot2gainSetting = 0.2;
 const ot2gainNode = audioContext.createGain();
 ot2gainNode.gain.setValueAtTime(ot2gainSetting, audioContext.currentTime);
 
 const ot3gainSlider = document.querySelector("#ot3-gain-slider");
 const ot3gainText = document.querySelector("#ot3-gain-text");
-var ot3gainSetting = 0.5;
+var ot3gainSetting = 0.1;
 const ot3gainNode = audioContext.createGain();
 ot3gainNode.gain.setValueAtTime(ot3gainSetting, audioContext.currentTime);
 
@@ -62,7 +63,7 @@ mastergainNode.gain.setValueAtTime(mastergainSetting, audioContext.currentTime);
 
 // Frequency and Wave Type
 var baseFrequency = 256; // Sets bottom note to C
-var fundamentalType = "sine";
+var fundamentalType = "triangle";
 var ot1Type = "sine";
 var ot2Type = "sine";
 var ot3Type = "sine";

@@ -3,14 +3,14 @@
     --bgc-1-opaque: rgba(239, 239, 239, 1);
     --bgc-2: rgba(228, 228, 228, 0.55);
     --bgc-2-opaque: rgba(228, 228, 228, 1);
-    --bgc-3: rgb(255, 0, 0);
+    --bgc-3: rgba(167, 167, 167, 0.538);
+    --bgc-3-opaque: rgba(167, 167, 167, 1);
     --bg-image:
         radial-gradient(at bottom left, transparent 30%, var(--bgc-2) 30% 40%, transparent 40%),
         radial-gradient(at top right, transparent 30.5%, var(--bgc-2) 30.5% 40.5%, transparent 40.5%),
 
         linear-gradient(-20deg, var(--bgc-1) 10%, transparent 10% 73.5%, var(--bgc-1) 73.5% 83.5%, transparent 83.5%),
         linear-gradient(-32.5deg, transparent 39%, var(--bgc-1) 39% 47.5%, transparent 47.5%);
-
     --bg-size: 40px 40px;
 }
 
@@ -19,7 +19,6 @@ body {
     font-family: 'Syne', sans-serif;
     margin: 8px 0;
     user-select: none;
-
 }
 
 /* -------------------Header------------------------------ */
@@ -27,7 +26,8 @@ body {
 .header {
     background-image: linear-gradient(90deg, rgb(88, 88, 88) 10%, transparent 10%), linear-gradient(42deg, transparent 48%, rgb(88, 88, 88) 48%, rgb(88, 88, 88) 55%, transparent 55%);
     background-size: 51px 48px;
-    background-position: 0 0;
+    background-repeat: repeat-x;
+    background-position: 0 center;
     animation-name: wave;
     animation-duration: 300ms;
     animation-timing-function: linear;
@@ -49,7 +49,7 @@ h1:hover {
 }
 
 @keyframes wave {
-    100% {background-position: -51px 0px;}
+    100% {background-position: -51px center;}
 }
 
 @media only screen and (max-width: 600px) {
@@ -111,12 +111,66 @@ h2 {
 }
 
 .gain-slider {
+    -webkit-appearance: none;
+    background: var(--bgc-3);
+    border-radius: 2px;
+    height: 4px;
     width: 330px;
+    
 }
 
-.radio-button {
-    margin-right: 26px;
+.gain-slider:hover {
+    background: var(--bgc-3-opaque);
 }
+
+.gain-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: black;
+    border-radius: 2px;
+    width: 8px;
+    height: 16px;
+}
+
+.gain-slider::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: black;
+    border-radius: 2px;
+    outline-style: none;
+    border-style: none;
+    width: 8px;
+    height: 16px;
+}
+
+
+.radio-button {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--bgc-1);
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: var(--bgc-3);
+    margin-right: 26px;
+    transform: translateY(2px);
+}
+
+.radio-button:hover {
+    background-color: var(--bgc-1-opaque);
+    border-color: var(--bgc-3-opaque);
+}
+
+.radio-button:checked {
+    background-image: radial-gradient(black 40%, transparent 40%);
+    background-repeat: no-repeat;
+}
+
+input:focus {
+    outline: none;
+}
+
 
 @media only screen and (max-width: 860px) {
     .grid-container{
@@ -170,6 +224,12 @@ h2 {
     margin: 30px 0 0 0;
 }
 
+@media only screen and (max-width: 600px) {
+    .accidental-text, .natural-text {
+        margin: auto 0 auto 0;
+    }
+}
+
 /* Accidentals */
 .black-key {
     display: flex;
@@ -203,7 +263,7 @@ h2 {
 
 /* Active Keys */
 .active {
-    background-color: rgba(167, 167, 167, 0.538);
+    background-color: var(--bgc-3);
 }
 
 /*------------------------------------------------------------------*/
