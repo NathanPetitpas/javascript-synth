@@ -1,5 +1,4 @@
 //Next Steps:
-// Touch Input
 // Fix clicks/pops
 
 //-----------------Establish Variables and Arrays-------------------------------
@@ -114,7 +113,7 @@ ot3gainNode.connect(mastergainNode);
 mastergainNode.connect(compressor).connect(audioContext.destination);
 
 
-//---------------------Toggle Settings---------------------------------------
+//---------------------Toggle Settings/Info Visibility---------------------------------------
 
 const settingsToggle = document.getElementById("settings-toggle");
 const settingsControlPanel = document.getElementById("settings-controls-panel");
@@ -343,3 +342,25 @@ window.addEventListener("keyup", function(e) {
         removeActive(keyDivs[pressedKeyNumber]);
     };
 });
+
+// Touch
+for (let i=0; i<keys.length; i++) {
+    keyDivs[i].addEventListener("touchstart", function() {
+        var keyNumber = keys.indexOf(this.innerText);
+        playNote(keyNumber);
+        setActive(this);
+    });
+};
+
+for (let i=0; i<keys.length; i++) {
+    keyDivs[i].addEventListener("touchend", function(){
+        var keyNumber = keys.indexOf(this.innerText);
+        stopNote(keyNumber);
+        removeActive(this);
+    });
+};
+
+// Disable right click on piano keys (by default it appears during long press using touch, which interrupts play)
+for (let i=0; i<keys.length; i++) {
+    keyDivs[i].addEventListener("contextmenu", e => e.preventDefault());
+};
